@@ -76,7 +76,16 @@ SELECT SubjectID, CONCAT("Day là mon hoc ", SubjectName) AS SubjectName FROM Su
 ALTER TABLE Student ADD CONSTRAINT check_age CHECK (Age > 15 AND Age < 50);
 SET SQL_SAFE_UPDATES = 0;
 
+# 10.	Xoa hoc vien co StudentID la 1
+SET FOREIGN_KEY_CHECKS=1; # to disable them
+SET FOREIGN_KEY_CHECKS=0; # to re-enable them
+DELETE FROM student WHERE StudentID=1;
 
 
+# 11.	Trong bang Student them mot column Status co kieu du lieu la Bit va co gia tri Default la 1
+ALTER TABLE student ADD Status BIT DEFAULT 1;
+
+# 12.	Cap nhap gia tri Status trong bang Student thanh 0
+UPDATE student SET Status=0;
 
 
