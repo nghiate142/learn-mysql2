@@ -89,4 +89,4 @@ ALTER TABLE student ADD Status BIT DEFAULT 1;
 # 12.	Cap nhap gia tri Status trong bang Student thanh 0
 UPDATE student SET Status=0;
 
-
+#
