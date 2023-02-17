@@ -68,13 +68,14 @@ ALTER TABLE Subjects MODIFY SubjectName LONGTEXT;
 # Trong mySQL không có kiểu dữ liệu nvarchar nhưng thay vào đó là LONGTEXT 
 
 # 7.	Cap nhat them dong chu « Day la mon hoc «  vao truoc cac ban ghi tren cot SubjectName trong bang Subjects
+SET SQL_SAFE_UPDATES = 0;
 UPDATE Subjects SET SubjectName = concat(SubjectName,"Day là mon hoc ");
-UPDATE  subjects SET subjects.SubjectName=concat(subjects.SubjectName, "Day la mon hoc");
+
 SELECT SubjectID, CONCAT("Day là mon hoc ", SubjectName) AS SubjectName FROM Subjects;
 
 # 8.	Viet Check Constraint de kiem tra do tuoi nhap vao trong bang Student yeu cau Age >15 va Age < 50
 ALTER TABLE Student ADD CONSTRAINT check_age CHECK (Age > 15 AND Age < 50);
-SET SQL_SAFE_UPDATES = 0;
+
 
 # 10.	Xoa hoc vien co StudentID la 1
 SET FOREIGN_KEY_CHECKS=1; # to disable them
